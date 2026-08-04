@@ -12,7 +12,7 @@
 
 # Executive Summary
 
-CreatorPilot is an AI-powered platform designed to become the operating system for modern content creators.
+CreatorPilot is an AI Operating System designed for modern content creators. designed to become the operating system for modern content creators.
 
 Rather than replacing creators, CreatorPilot empowers them by combining research, prompt engineering, AI orchestration, content planning, and publishing into a single intelligent workspace.
 
