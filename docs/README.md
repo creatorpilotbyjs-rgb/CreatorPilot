@@ -2,7 +2,7 @@
 
 # CreatorPilot Documentation
 
-This folder contains all project documentation.
+This folder contains all Documentation for CreatorPilot, the AI Operating System for Content Creators.
 
 ---
 
