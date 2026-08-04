@@ -47,7 +47,9 @@ These rules apply to:
 
 # Vision
 
-CreatorPilot is not just another AI tool.
+CreatorPilot is an AI Operating System for Content Creators.
+
+Every engineering decision should strengthen this vision.
 
 CreatorPilot is an AI Operating System for Content Creators.
 
