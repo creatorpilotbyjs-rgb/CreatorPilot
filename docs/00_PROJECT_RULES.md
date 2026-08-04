@@ -1,20 +1,47 @@
 # CreatorPilot - Project Rules
 
-**Status:** Draft
+| Property | Value |
+|----------|-------|
+| Status | Draft |
+| Version | 0.1.0 |
+| Owner | CreatorPilot Team |
+| Last Updated | 04-Aug-2026 |
+| Document Type | Engineering Standard |
 
-**Version:** 0.1.0
+---
 
-**Owner:** CreatorPilot Team
+# Executive Summary
 
-**Last Updated:** 04-Aug-2026
+This document defines the engineering principles, development standards, architecture rules, security guidelines, documentation standards, and product philosophy for the CreatorPilot platform.
+
+Every contributor must follow these standards to ensure the platform remains scalable, maintainable, secure, and production-ready.
+
+This document serves as the constitution of the CreatorPilot project.
 
 ---
 
 # Purpose
 
-This document defines the engineering, architecture, documentation, security, AI integration, and development standards for the CreatorPilot platform.
+The purpose of this document is to establish a single source of truth for engineering and development practices across the CreatorPilot platform.
 
-Every contributor must follow these rules to ensure the project remains scalable, maintainable, secure, and production-ready.
+It ensures consistency across architecture, backend development, frontend development, AI integrations, documentation, testing, and deployment.
+
+---
+
+# Scope
+
+These rules apply to:
+
+- Mobile Application
+- Web Application
+- Backend API
+- AI Integrations
+- Prompt Engine
+- Database
+- Infrastructure
+- Documentation
+- CI/CD Pipelines
+- Future Contributors
 
 ---
 
@@ -24,15 +51,36 @@ CreatorPilot is not just another AI tool.
 
 CreatorPilot is an AI Operating System for Content Creators.
 
-The platform will help creators research, plan, generate, manage and publish high-quality content using multiple AI providers from a single workspace.
+The platform enables creators to research, plan, generate, manage and publish high-quality content using multiple AI providers from one unified workspace.
 
 ---
 
-# Core Principles
+# Product Philosophy
+
+CreatorPilot does not compete with AI providers.
+
+CreatorPilot orchestrates them.
+
+AI models will continue to evolve.
+
+CreatorPilot will remain the intelligent workflow platform that connects creators with the best AI technologies available.
+
+Our value comes from:
+
+- Workflow Automation
+- Prompt Engineering
+- Content Research
+- AI Orchestration
+- Productivity
+- Quality
+
+---
+
+# Core Engineering Principles
 
 ## 1. Documentation First
 
-No feature should be implemented before its documentation is approved.
+No feature should be implemented before documentation has been approved.
 
 Documentation always comes before code.
 
@@ -42,13 +90,13 @@ Documentation always comes before code.
 
 CreatorPilot must never depend on a single AI provider.
 
-Every AI integration must be replaceable.
+Every provider must be replaceable.
 
-Examples:
+Supported providers may include:
 
 - OpenAI
 - Google Gemini
-- Claude
+- Anthropic Claude
 - Runway
 - Kling
 - Google Veo
@@ -58,149 +106,144 @@ Examples:
 
 ## 3. API First
 
-All communication must go through the CreatorPilot Backend API.
+All requests must pass through the CreatorPilot Backend API.
 
-The mobile and web applications must never communicate directly with AI providers.
+Mobile and Web applications must never communicate directly with AI providers.
 
-Benefits:
+Benefits include:
 
 - Security
 - Billing
-- Logging
-- Rate Limiting
 - Analytics
 - Provider Switching
+- Rate Limiting
+- Logging
+- Monitoring
 
 ---
 
 ## 4. Clean Architecture
 
-Backend must follow Clean Architecture principles.
+Backend services must follow Clean Architecture principles.
 
-Business logic must never depend on external services.
+Business logic must remain independent from frameworks and external services.
 
 ---
 
-## 5. Modular Design
+## 5. Modular Architecture
 
-Every module should be independent.
+Every module must be independently replaceable.
 
-Example:
+Examples include:
 
-Authentication
-
-Research
-
-Prompt Engine
-
-Script Engine
-
-Video Engine
-
-Publishing
-
-Analytics
-
-Each module should be replaceable without affecting the rest of the system.
+- Authentication
+- Research
+- Prompt Engine
+- Script Engine
+- Image Engine
+- Video Engine
+- Publishing
+- Analytics
 
 ---
 
 ## 6. Security First
 
-API Keys must never be stored in the client application.
+No secrets shall ever exist inside client applications.
 
-Secrets must always remain on the backend.
+API keys must remain on the server.
+
+Sensitive information must be encrypted.
 
 ---
 
 ## 7. Scalability
 
-Every feature should be designed for future scaling.
+Every feature must be designed for future scaling.
 
-Avoid temporary solutions that create long-term technical debt.
+Temporary solutions that introduce technical debt should be avoided.
 
 ---
 
 ## 8. Reusability
 
-Reusable code should always be preferred over duplicate implementations.
+Reusable components are preferred over duplicate implementations.
 
 ---
 
 ## 9. Performance
 
-Every feature should be optimized for speed and low API usage whenever possible.
+Performance should always be considered during development.
+
+Avoid unnecessary API requests and database operations.
 
 ---
 
-## 10. User Experience
+## 10. Creator First
 
-Every feature must reduce the creator's manual work.
+Every feature must reduce manual work for creators.
 
-If a feature does not save meaningful time, it should be reconsidered.
+If a feature does not improve productivity, it should be reconsidered.
 
 ---
 
 # Documentation Standards
 
-Every document must contain:
+Every document should contain:
 
+- Executive Summary
 - Purpose
 - Scope
 - Goals
-- Requirements
-- Decisions
+- Functional Requirements
+- Non Functional Requirements
+- Risks
 - Future Improvements
+- Decision Log
+- Approval
 
 ---
 
 # Development Workflow
 
-Every feature follows this order:
+Every feature follows this lifecycle:
 
 1. Requirement
-2. Architecture
-3. Database Design
-4. API Design
-5. UI Flow
-6. Prompt Design
-7. Backend Development
-8. Frontend Development
-9. Testing
-10. Documentation Update
+2. Research
+3. Architecture
+4. Database Design
+5. API Design
+6. UI/UX Design
+7. Prompt Design
+8. Backend Development
+9. Frontend Development
+10. Testing
+11. Documentation Update
+12. Release
 
 ---
 
-# Coding Standards
-
-## Backend
-
-- ASP.NET Core
-- REST API
-- Clean Architecture
-- SOLID Principles
-
----
+# Technology Standards
 
 ## Mobile
 
 - React Native
 - TypeScript
 
----
-
 ## Web
 
 - Next.js
 - TypeScript
 
----
+## Backend
+
+- ASP.NET Core
+- REST API
+- Clean Architecture
 
 ## Database
 
 - PostgreSQL (Supabase)
-
----
 
 ## Storage
 
@@ -208,104 +251,89 @@ Every feature follows this order:
 
 ---
 
-# AI Standards
+# AI Development Standards
 
-All AI providers must be abstracted behind interfaces.
+All AI providers must be abstracted through interfaces.
 
-The application should never be tightly coupled with any AI provider.
+Business logic must never directly depend on a specific AI provider.
+
+Provider replacement should require minimal code changes.
 
 ---
 
-# Git Standards
+# Git Workflow
 
 Main Branch
 
-- production-ready code only
+Production-ready code only.
 
 Develop Branch
 
-- active development
+Active development.
 
-Feature Branch
+Feature Branches
 
 feature/<feature-name>
 
-Bug Fix
+Bug Fixes
 
 bugfix/<issue-name>
 
-Hotfix
+Hotfixes
 
 hotfix/<issue-name>
 
+Release Branches
+
+release/<version>
+
 ---
 
-# Commit Message Convention
+# Commit Message Standard
 
 Examples:
 
 feat(auth): add Google authentication
 
-fix(api): resolve prompt generation timeout
+feat(prompt): implement reusable prompt builder
 
-docs(vision): update project roadmap
+fix(api): resolve timeout issue
+
+docs(vision): update product vision
 
 refactor(ai): simplify provider selection
 
 ---
 
-# Documentation Rules
-
-Every major technical decision must be documented.
-
-Architecture changes must be recorded.
-
-Prompt changes must be versioned.
-
----
-
-# Project Structure
-
-The repository structure should remain clean and organized.
-
-Documentation, prompts, architecture, APIs, and source code should always be separated.
-
----
-
 # Definition of Done
 
-A feature is considered complete only if:
+A feature is complete only if:
 
-✅ Requirements Approved
-
-✅ Database Updated
-
-✅ API Completed
-
-✅ Mobile Completed
-
-✅ Web Completed
-
-✅ Documentation Updated
-
-✅ Testing Completed
+- Requirements Approved
+- Documentation Updated
+- Database Updated
+- API Completed
+- Mobile Completed
+- Web Completed
+- Tests Passed
+- Code Reviewed
+- Deployment Ready
 
 ---
 
-# Future Vision
+# Long-Term Vision
 
-CreatorPilot should evolve into a complete AI Creator Operating System capable of integrating with any AI provider while maintaining a consistent creator experience.
+CreatorPilot will evolve into the world's leading AI Operating System for content creators.
+
+The platform should support any AI provider while delivering a seamless and consistent creator experience.
 
 ---
 
 # Approval
 
-Status: Draft
-
-Reviewed By:
-
-Approved By:
-
-Approval Date:
-
----
+| Property | Value |
+|----------|-------|
+| Status | Draft |
+| Reviewed By | |
+| Approved By | |
+| Approval Date | |
